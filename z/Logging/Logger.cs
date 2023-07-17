@@ -1,0 +1,246 @@
+﻿/*============================================================================
+
+  Copyright (C) Martin Hunter, all rights reserved.
+
+  --------------------------------------------------------------------------
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+============================================================================*/
+
+#region Usings
+using System;
+using Z.Settings;
+using System.Diagnostics;
+using System.Collections.Generic;
+#endregion
+
+namespace Z.Logging
+{
+    public static class Logger
+    {
+        #region Private Static Singleton Logger
+        private static IList<ILogEventListener> theLoggers = null;
+        private static IList<ILogEventListener> Local
+        {
+            get {
+                if (theLoggers == null) {
+                    theLoggers = new List<ILogEventListener> ();
+                    // Console Logger (only Debug-enabled logger) is in position 0.
+                    theLoggers.Add (
+                        new ConsoleLogEventListener ()
+                    );
+                }
+                return theLoggers;
+            }
+        }
+
+        private static bool isVerbose = false;
+        private static bool Verbose
+        {
+            get {
+                return isVerbose;
+            }
+        }
+        #endregion
+
+        #region Public Static Operations
+        public static void RegisterLogEventListener (ILogEventListener listener)
+        {
+            Local.Add (listener);
+        }
+
+        public static void Out (string message)
+        {
+            foreach (ILogEventListener _l in Local) {
+                _l.Out (message);
+            }
+        }
+
+        public static void Debug (int i)
+        {
+            if (Verbose) {
+                foreach (ILogEventListener _l in Local) {
+                    _l.Debug (i);
+                }
+            }
+        }
+
+        public static void Debug (double f)
+        {
+            if (Verbose) {
+                foreach (ILogEventListener _l in Local) {
+                    _l.Debug (f);
+                }
+            }
+        }
+
+        public static void Debug (string message)
+        {
+            if (Verbose) {
+                foreach (ILogEventListener _l in Local) {
+                    _l.Debug (message);
+                }
+            }
+        }
+
+        public static void Debug (string message, LogEvent action)
+        {
+            if (Verbose) {
+                foreach (ILogEventListener _l in Local) {
+                    _l.Debug (message, action);
+                }
+            }
+        }
+
+        public static void Debug (Exception exception)
+        {
+            if (Verbose) {
+                foreach (ILogEventListener _l in Local) {
+                    _l.Debug (exception);
+                }
+            }
+        }
+
+        public static void Debug (Action<ILogEventListener> action)
+        {
+            if (Verbose) {
+                foreach (ILogEventListener _l in Local) {
+                    _l.Debug (action);
+                }
+            }
+        }
+
+        public static void Debug (LogEvent action)
+        {
+            if (Verbose) {
+                StackFrame _f = new StackTrace ().GetFrame (1);
+                Debug (
+                    $"{_f.GetMethod ().DeclaringType.Name}.{_f.GetMethod ().Name} ({string.Join<System.Reflection.ParameterInfo> (", ", _f.GetMethod ().GetParameters ())})",
+                    LogEvent.Enter
+                );
+            }
+        }
+
+        public static void StackTrace ()
+        {
+            if (Verbose) {
+                StackTrace _t = new StackTrace ();
+                Debug (_t.ToString ());
+            }
+        }
+
+        public static void Info (string message)
+        {
+            foreach (ILogEventListener _l in Local) {
+                _l.Info (message);
+            }
+        }
+
+        public static void Warning (string message)
+        {
+            foreach (ILogEventListener _l in Local) {
+                _l.Warning (message);
+            }
+        }
+
+        public static void Error (string message)
+        {
+            foreach (ILogEventListener _l in Local) {
+                _l.Error (message);
+            }
+        }
+
+        public static void Error (Exception exception)
+        {
+            foreach (ILogEventListener _l in Local) {
+                _l.Error (exception);
+            }
+        }
+        #endregion
+
+        #region Static Asserts
+        public static bool AssertNotNull (object o0)
+        {
+            return Local [0].AssertNotNull (o0);
+        }
+
+        public static bool AssertIsNull (object o0)
+        {
+            return Local [0].AssertIsNull (o0);
+        }
+
+        public static bool AssertEquals (int o0, int o1)
+        {
+            return Local [0].AssertEquals (o0, o1);
+        }
+
+        public static bool AssertEquals (double o0, double o1)
+        {
+            return Local [0].AssertEquals (o0, o1);
+        }
+
+        public static bool AssertEquals (string o0, string o1, bool refEquals = false)
+        {
+            return Local [0].AssertEquals (o0, o1, refEquals);
+        }
+
+        public static void Assert (string message)
+        {
+            Local [0].Assert (message);
+        }
+        #endregion
+
+        #region Messages
+        public static class Messages
+        {
+        }
+        #endregion
+    }
+
+    public abstract class AbstractLogEventListener : ILogEventListener
+    {
+        public abstract void Out (string message);
+        public abstract void Debug (int i);
+        public abstract void Debug (double f);
+        public abstract void Debug (string message);
+        public abstract void Debug (string message, LogEvent action);
+        public abstract void Debug (Exception exception);
+        public abstract void Debug (Action<ILogEventListener> action);
+        public abstract void Info (string message);
+        public abstract void Warning (string message);
+        public abstract void Error (string message);
+        public abstract void Error (Exception exception);
+        public abstract void Assert (string message);
+        public abstract bool AssertNotNull (object o0);
+        public abstract bool AssertIsNull (object o0);
+        public abstract bool AssertEquals (int i0, int i1);
+        public abstract bool AssertEquals (double d0, double d1);
+        public abstract bool AssertEquals (string s0, string s1, bool refEquals = false);
+
+        protected string LogAction (LogEvent action)
+        {
+            string _rtn = string.Empty;
+            switch (action) {
+                case Logging.LogEvent.Enter:
+                    _rtn = ">> Enter:";
+                    break;
+                case Logging.LogEvent.Exit:
+                    _rtn = "<< Exit";
+                    break;
+            }
+            return _rtn;
+        }
+    }
+}
