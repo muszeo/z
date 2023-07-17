@@ -49,6 +49,7 @@ namespace Z.Scripting.JavaScript
         private RandomApi theRandom = null;
         private LoggerApi theLogger = null;
         private VariablesApi theVariables = null;
+        private bool theDebug = false;
         #endregion
 
         #region Constructors
@@ -64,6 +65,27 @@ namespace Z.Scripting.JavaScript
         #endregion
 
         #region Public Operations
+        /// <summary>
+        /// Writes a CRLF to the Console.
+        /// </summary>
+        /// <param name="message"></param>
+        [JSFunction (Name = "crlf")]
+        public void Crlf ()
+        {
+            Logger.Out (string.Empty);
+        }
+
+        /// <summary>
+        /// Tells Z to write verbose output.
+        /// </summary>
+        /// <param name="message"></param>
+        [JSFunction (Name = "debug")]
+        public void Debug ()
+        {
+            theDebug = true;
+            Logger.Debug ("Debug output is now on.");
+        }
+
         /// <summary>
         /// Writes the given {message} text to the Console.
         /// </summary>
@@ -82,9 +104,10 @@ namespace Z.Scripting.JavaScript
         public void Help ()
         {
             Logger.Out ("Z Api Methods Help:");
-            Logger.Out ("z.clear()");
-            Logger.Out ("z.out(string text)");
             Logger.Out ("z.help()");
+            Logger.Out ("z.clrf()");
+            Logger.Out ("z.out(string text)");
+            Logger.Out ("z.debug()");
             Logger.Out ("z.assert.true(bool condition, string message = null)");
             Logger.Out ("z.assert.false(bool condition, string message = null)");
             Logger.Out ("z.assert.ok(Response response, string message = null)");
@@ -258,7 +281,7 @@ namespace Z.Scripting.JavaScript
         private ResponseApi __Request (HttpMethod method, string baseUri, string resource, string body = null, string contentType = null, string expects = null, string token = null)
         {
             ResponseApi _rtn = null;
-            WebResourceProxy _p = new WebResourceProxy ();
+            WebResourceProxy _p = new WebResourceProxy (theDebug);
             Response _r = null;
             switch (method) {
                 case HttpMethod.Get:

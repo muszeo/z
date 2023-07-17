@@ -45,14 +45,6 @@ namespace Z.Logging
                 return theLoggers;
             }
         }
-
-        private static bool isVerbose = false;
-        private static bool Verbose
-        {
-            get {
-                return isVerbose;
-            }
-        }
         #endregion
 
         #region Public Static Operations
@@ -70,75 +62,59 @@ namespace Z.Logging
 
         public static void Debug (int i)
         {
-            if (Verbose) {
-                foreach (ILogEventListener _l in Local) {
-                    _l.Debug (i);
-                }
+            foreach (ILogEventListener _l in Local) {
+                _l.Debug (i);
             }
         }
 
         public static void Debug (double f)
         {
-            if (Verbose) {
-                foreach (ILogEventListener _l in Local) {
-                    _l.Debug (f);
-                }
+            foreach (ILogEventListener _l in Local) {
+                _l.Debug (f);
             }
         }
 
         public static void Debug (string message)
         {
-            if (Verbose) {
-                foreach (ILogEventListener _l in Local) {
-                    _l.Debug (message);
-                }
+            foreach (ILogEventListener _l in Local) {
+                _l.Debug (message);
             }
         }
 
         public static void Debug (string message, LogEvent action)
         {
-            if (Verbose) {
-                foreach (ILogEventListener _l in Local) {
-                    _l.Debug (message, action);
-                }
+            foreach (ILogEventListener _l in Local) {
+                _l.Debug (message, action);
             }
         }
 
         public static void Debug (Exception exception)
         {
-            if (Verbose) {
-                foreach (ILogEventListener _l in Local) {
-                    _l.Debug (exception);
-                }
+            foreach (ILogEventListener _l in Local) {
+                _l.Debug (exception);
             }
         }
 
         public static void Debug (Action<ILogEventListener> action)
         {
-            if (Verbose) {
-                foreach (ILogEventListener _l in Local) {
-                    _l.Debug (action);
-                }
+            foreach (ILogEventListener _l in Local) {
+                _l.Debug (action);
             }
         }
 
         public static void Debug (LogEvent action)
         {
-            if (Verbose) {
-                StackFrame _f = new StackTrace ().GetFrame (1);
-                Debug (
-                    $"{_f.GetMethod ().DeclaringType.Name}.{_f.GetMethod ().Name} ({string.Join<System.Reflection.ParameterInfo> (", ", _f.GetMethod ().GetParameters ())})",
-                    LogEvent.Enter
-                );
-            }
+            StackFrame _f = new StackTrace ().GetFrame (1);
+            Debug (
+                $"{_f.GetMethod ().DeclaringType.Name}.{_f.GetMethod ().Name} ({string.Join<System.Reflection.ParameterInfo> (", ", _f.GetMethod ().GetParameters ())})",
+                LogEvent.Enter
+            );
         }
 
         public static void StackTrace ()
         {
-            if (Verbose) {
-                StackTrace _t = new StackTrace ();
-                Debug (_t.ToString ());
-            }
+            StackTrace _t = new StackTrace ();
+            Debug (_t.ToString ());
         }
 
         public static void Info (string message)

@@ -79,8 +79,22 @@ namespace Z
         public void Header ()
         {
             Logger.Out (
+                $"==================================================================\n" +
+                $"                                                                  \n" +
+                $"      zzzzzzzzzzzzzz zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz z z  z   z  \n" +
+                $"     zz          zz                                               \n" +
+                $"    zz          zz  aaaa     ppppp  iiii  tttttttttt              \n" +
+                $"  zzzzzzzz     zz  aa   a    pp  pp  ii       tt                  \n" +
+                $"        zz    zz  aa  a  a   pp  pp  ii       tt                  \n" +
+                $"       zz    zz  aa  aaa  a  ppppp   ii       tt                  \n" +
+                $"      Zz    zzzzzazzaaaaazza pp zzzzziizzzzzz tt zzzz z z  z   z  \n" +
+                $"     zz        aa  a    aa  app      ii       tt                  \n" +
+                $"    Zzzzzzzzzzzzzzzzzzzzzzzz pp zzzzzzzzzzzzz tt zzzz z z  z   z  \n" +
+                $"             aa  a        aa pp     iiii      tt                  \n" +
+                $"                                                                  \n" +
                 $"==================================================================\n\n" +
-                $" Welcome to Z API Test Harness v{Constants.Z_VERSION}\n\n" +
+                $"                  Z-API-Test Harness version {Constants.Z_VERSION}\n\n" +
+                $"              (c) Martin Hunter, 2023, New Zealand                \n\n" +
                 $"==================================================================\n"
             );
         }
@@ -101,8 +115,11 @@ namespace Z
         public void Help ()
         {
             Logger.Out (
-                $"run <file>    => runs the z test harness against the given <file> plan in the current path.\n" +
-                $"help          => show this help."
+                $"run <file>    => Runs the zapit test harness against the given\n" +
+                $"                 <file> test plan in the current directory.\n" +
+                $"help          => Show this help. For help on the zapit JavaScript\n" +
+                $"                 api please run a simple test plan containing the\n" +
+                $"                 following line of code: z.help();\n"
             );
         }
 

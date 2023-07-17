@@ -1,3 +1,3 @@
-/Users/muszeo/Development/martin/z/z/publish-macos/zapi.pdb
+/Users/muszeo/Development/martin/z/z/publish-macos/zapit.pdb
 /Users/muszeo/Development/martin/z/z/publish-macos/System.Native.a
-/Users/muszeo/Development/martin/z/z/publish-macos/zapi
+/Users/muszeo/Development/martin/z/z/publish-macos/zapit

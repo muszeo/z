@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZrWKJ+QAlR+8klUw10hWme1p9U4R2qfU5hPiyhNIfOPc3MIbiaZJLcJzpT/OUs3wWPDjEaq4ksVvfD+9QdNI+Q==",
+  "dgSpecHash": "zIfZ5qly9IXdKoXYM3Yl/puWsggrzOHs0bIVEEaWrtkaHJEj4/ay01b9nAazQ7liPIFfBw5MFzaxrfoB33nGUg==",
   "success": true,
   "projectFilePath": "/Users/muszeo/Development/martin/z/z/z.csproj",
   "expectedPackageFiles": [
@@ -65,9 +65,9 @@
     "/Users/muszeo/.nuget/packages/system.text.encoding.extensions/4.3.0/system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "/Users/muszeo/.nuget/packages/system.threading/4.3.0/system.threading.4.3.0.nupkg.sha512",
     "/Users/muszeo/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
-    "/Users/muszeo/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/6.0.16/microsoft.netcore.app.runtime.osx-x64.6.0.16.nupkg.sha512",
     "/Users/muszeo/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-x64/6.0.16/microsoft.aspnetcore.app.runtime.osx-x64.6.0.16.nupkg.sha512",
-    "/Users/muszeo/.nuget/packages/microsoft.netcore.app.host.osx-x64/6.0.16/microsoft.netcore.app.host.osx-x64.6.0.16.nupkg.sha512"
+    "/Users/muszeo/.nuget/packages/microsoft.netcore.app.host.osx-x64/6.0.16/microsoft.netcore.app.host.osx-x64.6.0.16.nupkg.sha512",
+    "/Users/muszeo/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/6.0.16/microsoft.netcore.app.runtime.osx-x64.6.0.16.nupkg.sha512"
   ],
   "logs": []
 }

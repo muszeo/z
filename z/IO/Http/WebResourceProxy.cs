@@ -32,14 +32,17 @@ namespace Z.IO.Http
     public class WebResourceProxy
     {
         #region Private Member Variables
+        private bool theDebug = false;
         #endregion
 
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Modr.IO.Http.WebRequester"/> class.
+        /// Initializes a new instance of the <see cref="T:Z.IO.Http.WebRequester"/> class.
         /// </summary>
-        public WebResourceProxy ()
+        /// <param name="debug"></param>
+        public WebResourceProxy (bool debug = false)
         {
+            theDebug = debug;
         }
         #endregion
 
@@ -164,6 +167,15 @@ namespace Z.IO.Http
                     _s.Write (__AsByteArray (body), 0, body.Length);
                     _s.Close ();
                 }
+
+                if (theDebug) {
+                    string _msg = $"Executing '{method}' on '{baseUri}/{resource}'";
+                    if (body != null) {
+                        _msg = $"{_msg} with body '{body}'";
+                    }
+                    Logger.Debug (_msg);
+                }
+
                 using (HttpWebResponse _r = _q.GetResponse () as HttpWebResponse) {
                     StreamReader _s = new StreamReader (
                         _r.GetResponseStream ()
@@ -174,7 +186,7 @@ namespace Z.IO.Http
                     _r.Close ();
                 }
             } catch (Exception __x) {
-                throw new IoException (__x);
+                throw new IoException (__x.Message, __x);
             }
             return _rtn;
         }

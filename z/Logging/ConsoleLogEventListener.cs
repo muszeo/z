@@ -134,7 +134,13 @@ namespace Z.Logging
         /// <param name="exception">Exception.</param>
         public override void Error (Exception exception)
         {
-            Error ($"Exception: {exception.Message}, {exception.StackTrace}");
+            Error (
+                $"Exception:" +
+                $"\n\tType: {exception.GetType().ToString()}" +
+                $"\n\tSource: {exception.Source}" +
+                $"\n\tMessage: {exception.Message}," +
+                $"\n\tTrace: {exception.StackTrace}"
+            );
         }
 
         /// <summary>

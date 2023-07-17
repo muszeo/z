@@ -3328,7 +3328,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "/Users/muszeo/Development/martin/z/z/z.csproj",
-      "projectName": "ZApi",
+      "projectName": "ZApiT",
       "projectPath": "/Users/muszeo/Development/martin/z/z/z.csproj",
       "packagesPath": "/Users/muszeo/.nuget/packages/",
       "outputPath": "/Users/muszeo/Development/martin/z/z/obj/",
