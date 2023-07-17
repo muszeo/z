@@ -61,7 +61,7 @@ namespace Z.Scripting.JavaScript
             if (message != null) {
                 _m = $"{message}: {_m}";
             }
-            Logger.Info (_m);
+            Logger.Assert (_m);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Z.Scripting.JavaScript
             if (message != null) {
                 _m = $"{message}: {_m}";
             }
-            Logger.Info (_m);
+            Logger.Assert (_m);
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Z.Scripting.JavaScript
             } else {
                 _m = $"OK: {_m}";
             }
-            Logger.Info (_m);
+            Logger.Assert (_m);
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Z.Scripting.JavaScript
             } else {
                 _m = $"Error: {_m}";
             }
-            Logger.Info (_m);
+            Logger.Assert (_m);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Z.Scripting.JavaScript
             } else {
                 _m = $"Not Found: {_m}";
             }
-            Logger.Info (_m);
+            Logger.Assert (_m);
         }
         #endregion
     }
