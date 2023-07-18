@@ -430,7 +430,7 @@
         }
       }
     },
-    "net6.0/osx.10.11-x64": {
+    "net6.0/linux-x64": {
       "Jurassic/3.2.6": {
         "type": "package",
         "dependencies": {
@@ -627,8 +627,7 @@
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
-          "runtime.osx.10.10-x64.runtime.native.System": "4.3.0"
+          "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -641,8 +640,7 @@
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
-          "runtime.osx.10.10-x64.runtime.native.System.IO.Compression": "4.3.0"
+          "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -678,24 +676,8 @@
       "runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package"
       },
-      "runtime.osx.10.10-x64.runtime.native.System/4.3.0": {
-        "type": "package",
-        "native": {
-          "runtimes/osx.10.10-x64/native/System.Native.a": {},
-          "runtimes/osx.10.10-x64/native/System.Native.dylib": {}
-        }
-      },
-      "runtime.osx.10.10-x64.runtime.native.System.IO.Compression/4.3.0": {
-        "type": "package",
-        "native": {
-          "runtimes/osx.10.10-x64/native/System.IO.Compression.Native.dylib": {}
-        }
-      },
       "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
-        "type": "package",
-        "native": {
-          "runtimes/osx.10.10-x64/native/System.Security.Cryptography.Native.OpenSsl.dylib": {}
-        }
+        "type": "package"
       },
       "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package"
@@ -1695,35 +1677,6 @@
         "runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/opensuse.42.1-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
-      ]
-    },
-    "runtime.osx.10.10-x64.runtime.native.System/4.3.0": {
-      "sha512": "B6nUg4O4/e73fJJ0HQX3IWFYvMVZ0KOuXMtAn6A39l55576Zq1VrWAiGSOS0Pc2OwGz3hlgyjzzawbmlvmPMwg==",
-      "type": "package",
-      "path": "runtime.osx.10.10-x64.runtime.native.system/4.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "runtime.osx.10.10-x64.runtime.native.system.4.3.0.nupkg.sha512",
-        "runtime.osx.10.10-x64.runtime.native.system.nuspec",
-        "runtimes/osx.10.10-x64/native/System.Native.a",
-        "runtimes/osx.10.10-x64/native/System.Native.dylib"
-      ]
-    },
-    "runtime.osx.10.10-x64.runtime.native.System.IO.Compression/4.3.0": {
-      "sha512": "aTYfREBR0YXLZ9Gmdd5o2bQ7NprKIITy7+z39f8AiUg8J8YbPLsk7/ZdY6ozD6r0IAiyvrwTFNSZp+COo7j3Rw==",
-      "type": "package",
-      "path": "runtime.osx.10.10-x64.runtime.native.system.io.compression/4.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "runtime.osx.10.10-x64.runtime.native.system.io.compression.4.3.0.nupkg.sha512",
-        "runtime.osx.10.10-x64.runtime.native.system.io.compression.nuspec",
-        "runtimes/osx.10.10-x64/native/System.IO.Compression.Native.dylib"
       ]
     },
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -3392,15 +3345,15 @@
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
+            "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
             "version": "[6.0.16, 6.0.16]"
           },
           {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
             "version": "[6.0.16, 6.0.16]"
           },
           {
-            "name": "Microsoft.NETCore.App.Runtime.osx-x64",
+            "name": "Microsoft.NETCore.App.Runtime.linux-x64",
             "version": "[6.0.16, 6.0.16]"
           }
         ],
@@ -3413,7 +3366,7 @@
       }
     },
     "runtimes": {
-      "osx.10.11-x64": {
+      "linux-x64": {
         "#import": []
       }
     }
