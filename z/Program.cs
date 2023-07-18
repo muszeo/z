@@ -54,6 +54,11 @@ try {
         }
     }
 
+    // Spit out Help.
+    else {
+        _h.Help ();
+    }
+
     // Write Footer.
     _h.Footer ();
 

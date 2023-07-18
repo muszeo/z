@@ -58,6 +58,9 @@ namespace Z
             try {
 
                 if (path != null && path.Length > 0) {
+
+                    Logger.Out ($"\nExecuting plan '{path}'");
+
                     theJsEngine.Execute (
                         File.ReadAllText (
                             Path.Combine (
@@ -66,22 +69,31 @@ namespace Z
                             )
                         )
                     );
+
                 } else {
+
+                    Logger.Out ("\nLooking for test plans to execute...");
 
                     string [] _files =
                         Directory
                             .GetFiles (
                                 Directory.GetCurrentDirectory (),
-                                "*.js"
+                                "*.js",
+                                SearchOption.TopDirectoryOnly
                             )
                             .OrderBy (_f => _f)
                             .ToArray ();
 
+                    Logger.Out ($"\nFound {_files.Length} plans to execute.");
+
                     foreach (string _f in _files) {
+                        Logger.Out ($"\nExecuting plan '{_f}'...");
                         theJsEngine.Execute (
                             File.ReadAllText (_f)
                         );
                     }
+
+                    Logger.Out ($"\nFinished executing {_files.Length} plans.");
 
                 }
 
