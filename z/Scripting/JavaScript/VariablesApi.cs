@@ -39,7 +39,7 @@ namespace Z.Scripting.JavaScript
 
         #region Constructors
         /// <summary>
-        /// Constructor for <see cref="T:Modr.Scripting.JavaScript.VariablesApi"/> class.
+        /// Constructor for <see cref="T:Z.Scripting.JavaScript.VariablesApi"/> class.
         /// </summary>
         /// <param name="engine"></param>
         public VariablesApi (ScriptEngine engine)
@@ -54,7 +54,8 @@ namespace Z.Scripting.JavaScript
         /// <summary>
         /// Sets {key} {value}.
         /// </summary>
-        /// <param name="output"></param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         [JSFunction (Name = "set")]
         public void Set (string key, object value)
         {

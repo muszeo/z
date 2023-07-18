@@ -56,6 +56,9 @@ namespace Z.Settings
             public const string HELP = "help";
             public const string ALL = "--all";
             public const string PLAN = "--plan";
+            public const string GLOBAL = "--global";
+
+            public const string SPLIT = "=";
         }
 
         public static class Application

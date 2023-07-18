@@ -31,7 +31,7 @@ namespace Z.Scripting.JavaScript
     {
         #region Constructors
         /// <summary>
-        /// Constructor for <see cref="T:Modr.Scripting.JavaScript.ScriptApi"/> class.
+        /// Constructor for <see cref="T:Z.Scripting.JavaScript.ScriptApi"/> class.
         /// </summary>
         /// <param name="engine"></param>
         public ScriptApi (ScriptEngine engine)

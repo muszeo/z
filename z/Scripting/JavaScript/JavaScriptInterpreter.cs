@@ -38,6 +38,7 @@ namespace Z.Scripting.JavaScript
         /// Constructor for <see cref="T:Z.Scripting.JavaScript.JavaScriptInterpreter"/> class.
         /// </summary>
         internal JavaScriptInterpreter ()
+            : base ()
         {
             theJurassicEngine = new ScriptEngine ();
 
@@ -53,7 +54,7 @@ namespace Z.Scripting.JavaScript
 
             theJurassicEngine.SetGlobalValue (
                 "z",
-                new ZApi (theJurassicEngine)
+                new ZApi (theJurassicEngine, Set, Get)
             );
 
         }

@@ -39,7 +39,7 @@ namespace Z.Scripting.JavaScript
 
         #region Constructors
         /// <summary>
-        /// Constructor for <see cref="T:Modr.Scripting.JavaScript.VariablesApi"/> class.
+        /// Constructor for <see cref="T:Z.Scripting.JavaScript.VariablesApi"/> class.
         /// </summary>
         /// <param name="engine"></param>
         public RandomApi (ScriptEngine engine)

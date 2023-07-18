@@ -50,6 +50,23 @@ namespace Z
 
         #region Public Operations
         /// <summary>
+        /// Prepares Global Variables from given string [] {args}.
+        /// </summary>
+        /// <param name="args"></param>
+        public void Globals (string [] args)
+        {
+            if (args != null && args.Length > 0 && args.Contains (Constants.Commands.GLOBAL)) {
+                for (int _i = 0; _i < args.Length; _i++) {
+                    if (args [_i].Equals (Constants.Commands.GLOBAL)) {
+                        if (args.Length > _i + 1) {
+                            __AddGlobal (args [_i + 1]);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Execte the script file at the given {path}.
         /// </summary>
         /// <param name="path"></param>
@@ -144,13 +161,19 @@ namespace Z
         public void Help ()
         {
             Logger.Out (
-                $"run <file>    => Runs the zapit test harness against the given\n" +
-                $"                 <file> test plan in the current directory.\n" +
+                $"Usage:                                                            \n" +
+                $"                                                                  \n" +
+                $"  zapit [run] [<file>|--all] [--global <key>=<value> ...]         \n" +
+                $"                                                                  \n" +
+                $"run <file>    => Runs the zapit test harness against the given    \n" +
+                $"                 <file> test plan in the current directory.       \n" +
                 $"run --all     => Runs the zapit test hardness against all js files\n" +
-                $"                 in the current directory.\n" +
-                $"help          => Show this help. For help on the zapit JavaScript\n" +
-                $"                 api please run a simple test plan containing the\n" +
-                $"                 following line of code: z.help();\n"
+                $"                 in the current directory.                        \n" +
+                $"    --global  => Set a global variable value, in the form         \n" +
+                $"                 <key>=<value> for example, --global id=1         \n" +
+                $"help          => Show this help. For help on the zapit JavaScript \n" +
+                $"                 api please run a simple test plan containing the \n" +
+                $"                 following line of code: z.help();                \n"
             );
         }
 
@@ -173,6 +196,19 @@ namespace Z
         #endregion
 
         #region Private Operations
+        /// <summary>
+        /// Adds a Global Variable to the JS Script Interpreter.
+        /// </summary>
+        /// <param name="global"></param>
+        private void __AddGlobal (string global)
+        {
+            if (theJsEngine != null && global != null && global.Length > 0) {
+                string [] _g = global.Split (Constants.Commands.SPLIT);
+                if (_g != null && _g.Length >= 2) {
+                    theJsEngine.Set (_g [0], _g [1]);
+                }
+            }
+        }
         #endregion
     }
 }

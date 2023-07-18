@@ -23,6 +23,8 @@
 using System;
 using Z.Scripting.JavaScript;
 using System.Collections.Generic;
+using Jurassic;
+using Z.Logging;
 #endregion
 
 namespace Z.Scripting
@@ -36,6 +38,10 @@ namespace Z.Scripting
     public abstract class ScriptInterpreter
     {
         #region Private Member Variables
+        private IDictionary<string, object> theVariables = null;
+        #endregion
+
+        #region Private Static Member Variables
         private static IDictionary<Language, ScriptInterpreter> theInterpreters = null;
         #endregion
 
@@ -60,8 +66,49 @@ namespace Z.Scripting
         }
         #endregion
 
+        #region Constructors
+        /// <summary>
+        /// Constructor for <see cref="T:Z.Scripting.ScriptInterpreter"/> class.
+        /// </summary>
+        internal ScriptInterpreter ()
+        {
+            theVariables = new Dictionary<string, object> ();
+        }
+        #endregion
+
+
         #region Public Abstract Operations
         public abstract void Execute (string script);
+        #endregion
+
+        #region Public Operations
+        /// <summary>
+        /// Sets {key} {value}.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public void Set (string key, object value)
+        {
+            if (!theVariables.ContainsKey (key)) {
+                Logger.Info ($"Adding Global '{key}' with value '{value}'");
+                theVariables.Add (key, value);
+            } else {
+                Logger.Info ($"Updating Global '{key}' with value '{value}'");
+                theVariables [key] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets {value} for {key}.
+        /// </summary>
+        public object Get (string key)
+        {
+            object _rtn = null;
+            if (theVariables.ContainsKey (key)) {
+                _rtn = theVariables [key];
+            }
+            return _rtn;
+        }
         #endregion
     }
 }

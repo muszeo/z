@@ -43,6 +43,10 @@ try {
                     _file = args [_j + 1];
                 }
 
+                if (args.Length > _j + 2 && args.Contains (Constants.Commands.GLOBAL)) {
+                    _h.Globals (args);
+                }
+
                 if (_file.Equals (Constants.Commands.ALL)) {
                     _h.Execute ();
                 } else {

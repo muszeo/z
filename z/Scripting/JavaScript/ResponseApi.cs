@@ -53,7 +53,7 @@ namespace Z.Scripting.JavaScript
 
         #region Constructors
         /// <summary>
-        /// Constructor for <see cref="T:Modr.Scripting.JavaScript.ResponseApi"/> class.
+        /// Constructor for <see cref="T:Z.Scripting.JavaScript.ResponseApi"/> class.
         /// </summary>
         /// <param name="engine"></param>
         /// <param name="element"></param>
@@ -65,7 +65,7 @@ namespace Z.Scripting.JavaScript
         }
 
         /// <summary>
-        /// Constructor for <see cref="T:Modr.Scripting.JavaScript.ResponseApi"/> class.
+        /// Constructor for <see cref="T:Z.Scripting.JavaScript.ResponseApi"/> class.
         /// </summary>
         /// <param name="prototype"></param>
         public ResponseApi (ObjectInstance prototype)

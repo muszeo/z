@@ -48,19 +48,23 @@ namespace Z.Scripting.JavaScript
         private AssertApi theAssert = null;
         private RandomApi theRandom = null;
         private LoggerApi theLogger = null;
+        private GlobalsApi theGlobals = null;
         private VariablesApi theVariables = null;
         private bool theDebug = false;
         #endregion
 
         #region Constructors
         /// <summary>
-        /// Constructor for <see cref="T:Modr.Scripting.JavaScript.ZApi"/> class.
+        /// Constructor for <see cref="T:Z.Scripting.JavaScript.ZApi"/> class.
         /// </summary>
         /// <param name="engine"></param>
-        public ZApi (ScriptEngine engine)
+        /// <param name="set"></param>
+        /// <param name="get"></param>
+        public ZApi (ScriptEngine engine, Action<string, object> set, Func<string, object> get)
             : base (engine)
         {
             theEngine = engine;
+            theGlobals = new GlobalsApi (engine, set, get);
         }
         #endregion
 
@@ -115,6 +119,8 @@ namespace Z.Scripting.JavaScript
             Logger.Out ("z.assert.notfound(Response response, string message = null)");
             Logger.Out ("z.vars.set(string name, object value)");
             Logger.Out ("z.vars.get(string name) : object");
+            Logger.Out ("z.globals.set(string name, object value)");
+            Logger.Out ("z.globals.get(string name) : object");
             Logger.Out ("z.random.number(int min = 0, int max = 1000) : integer");
             Logger.Out ("z.random.text(int min = 4, int max = 16) : string");
             Logger.Out ("z.random.date()");
@@ -124,6 +130,17 @@ namespace Z.Scripting.JavaScript
             Logger.Out ("z.post(string uri, string resource, string body, string contentType = null, string expects = null, string token = null) : response");
             Logger.Out ("z.put(string uri, string resource, string body, string contentType = null, string expects = null, string token = null) : response");
             Logger.Out ("z.delete(string uri, string resource, string token = null) : response");
+        }
+
+        /// <summary>
+        /// Gets handle to internal globals dictionary.
+        /// </summary>
+        [JSProperty (Name = "globals")]
+        public GlobalsApi Globals
+        {
+            get {
+                return theGlobals;
+            }
         }
 
         /// <summary>
