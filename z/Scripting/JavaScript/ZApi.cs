@@ -117,6 +117,9 @@ namespace Z.Scripting.JavaScript
             Logger.Out ("z.vars.get(string name) : object");
             Logger.Out ("z.random.number(int min = 0, int max = 1000) : integer");
             Logger.Out ("z.random.text(int min = 4, int max = 16) : string");
+            Logger.Out ("z.random.date()");
+            Logger.Out ("z.random.datetime()");
+            Logger.Out ("z.random.isodatetime()");
             Logger.Out ("z.get(string uri, string resource, string token = null) : response");
             Logger.Out ("z.post(string uri, string resource, string body, string contentType = null, string expects = null, string token = null) : response");
             Logger.Out ("z.put(string uri, string resource, string body, string contentType = null, string expects = null, string token = null) : response");

@@ -54,6 +54,7 @@ namespace Z.Settings
         {
             public const string RUN = "run";
             public const string HELP = "help";
+            public const string ALL = "--all";
             public const string PLAN = "--plan";
         }
 

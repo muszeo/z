@@ -53,7 +53,7 @@ namespace Z
         /// Execte the script file at the given {path}.
         /// </summary>
         /// <param name="path"></param>
-        public void Execute (string path)
+        public void Execute (string path = null)
         {
             try {
 
@@ -66,6 +66,23 @@ namespace Z
                             )
                         )
                     );
+                } else {
+
+                    string [] _files =
+                        Directory
+                            .GetFiles (
+                                Directory.GetCurrentDirectory (),
+                                "*.js"
+                            )
+                            .OrderBy (_f => _f)
+                            .ToArray ();
+
+                    foreach (string _f in _files) {
+                        theJsEngine.Execute (
+                            File.ReadAllText (_f)
+                        );
+                    }
+
                 }
 
             } catch (Exception __x) {
@@ -117,6 +134,8 @@ namespace Z
             Logger.Out (
                 $"run <file>    => Runs the zapit test harness against the given\n" +
                 $"                 <file> test plan in the current directory.\n" +
+                $"run --all     => Runs the zapit test hardness against all js files\n" +
+                $"                 in the current directory.\n" +
                 $"help          => Show this help. For help on the zapit JavaScript\n" +
                 $"                 api please run a simple test plan containing the\n" +
                 $"                 following line of code: z.help();\n"

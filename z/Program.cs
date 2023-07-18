@@ -43,7 +43,11 @@ try {
                     _file = args [_j + 1];
                 }
 
-                _h.Execute (_file);
+                if (_file.Equals (Constants.Commands.ALL)) {
+                    _h.Execute ();
+                } else {
+                    _h.Execute (_file);
+                }
 
                 break;
             }

@@ -53,7 +53,8 @@ namespace Z.Scripting.JavaScript
         /// <summary>
         /// Get Random Number
         /// </summary>
-        /// <param name="output"></param>
+        /// <param name="max"></param>
+        /// <param name="min"></param>
         [JSFunction (Name = "number")]
         public int Number (int min = 0, int max = 1000)
         {
@@ -66,7 +67,8 @@ namespace Z.Scripting.JavaScript
         /// <summary>
         /// Get Random Text
         /// </summary>
-        /// <param name="output"></param>
+        /// <param name="max"></param>
+        /// <param name="min"></param>
         [JSFunction (Name = "text")]
         public string Text (int min = 4, int max = 16)
         {
@@ -86,6 +88,33 @@ namespace Z.Scripting.JavaScript
             }
 
             return _rtn;
+        }
+
+        /// <summary>
+        /// Get Random Date
+        /// </summary>
+        [JSFunction (Name = "date")]
+        public string Date ()
+        {
+            return System.DateTime.Now.StringifyANSIDateOnly ();
+        }
+
+        /// <summary>
+        /// Get Random DateTime
+        /// </summary>
+        [JSFunction (Name = "datetime")]
+        public string DateTime ()
+        {
+            return System.DateTime.Now.StringifyANSI ();
+        }
+
+        /// <summary>
+        /// Get Random ISO DateTime
+        /// </summary>
+        [JSFunction (Name = "isodatetime")]
+        public string IsoDateTime ()
+        {
+            return System.DateTime.Now.StringifyISO8601 ();
         }
         #endregion
     }

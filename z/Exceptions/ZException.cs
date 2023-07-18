@@ -10,7 +10,7 @@ using System;
 
 namespace Z.Exceptions
 {
-	public abstract class ZException : Exception
+	public class ZException : Exception
 	{
         private static readonly string __TITLE__ = "ZException";
 
