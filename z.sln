@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{D0AF1BAB-D1B0-4909-9EB1-DDC23DECA524}"
 	ProjectSection(SolutionItems) = preProject
 		dotnet-publish-nix.sh = dotnet-publish-nix.sh
+		dotnet-publish-win.sh = dotnet-publish-win.sh
 	EndProjectSection
 EndProject
 Global
