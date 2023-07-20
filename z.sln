@@ -5,6 +5,11 @@ VisualStudioVersion = 25.0.1704.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "z", "z\z.csproj", "{A59E97AA-EF00-479A-A4D7-06A5FCD8D702}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{D0AF1BAB-D1B0-4909-9EB1-DDC23DECA524}"
+	ProjectSection(SolutionItems) = preProject
+		dotnet-publish-nix.sh = dotnet-publish-nix.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
