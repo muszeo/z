@@ -81,8 +81,14 @@ try {
     // Write Footer.
     _h.Footer ();
 
+    // Exit Code 0.
+    Environment.Exit (0);
+
 } catch (Exception __x) {
     Console.WriteLine (
         $"{__x.Message}\n"
     );
+
+    // Exit Code 1.
+    Environment.Exit (1);
 }

@@ -67,10 +67,10 @@ namespace Z.Settings
 
             public static class Version
             {
-                public static readonly string FULL = "23.01";
+                public static readonly string FULL = "23.02";
                 public static readonly string MAJOR = "23";
-                public static readonly string MINOR = "01";
-                public static readonly string REVISION = "1";
+                public static readonly string MINOR = "02";
+                public static readonly string REVISION = "2";
                 public static readonly string COPYRIGHT = "Copyright (c) 2023 Martin Hunter, New Zealand, All Rights Reserved.";
             }
 
