@@ -14,7 +14,7 @@ Use the shell scripts in the root of the project to build the *Zapit* executable
 2. Write a test plan therein.
 3. Run the test plan script using *Zapit*.
 
-Execute *Zapit* with no command line parameters, or pass 'help', for help in getting started:
+Execute *Zapit* with no command line parameters, or pass ```help```, for help in getting started:
 
 #### Linux
 
