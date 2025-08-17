@@ -184,39 +184,4 @@ namespace Z.Logging
         }
         #endregion
     }
-
-    public abstract class AbstractLogEventListener : ILogEventListener
-    {
-        public abstract void Out (string message);
-        public abstract void Debug (int i);
-        public abstract void Debug (double f);
-        public abstract void Debug (string message);
-        public abstract void Debug (string message, LogEvent action);
-        public abstract void Debug (Exception exception);
-        public abstract void Debug (Action<ILogEventListener> action);
-        public abstract void Info (string message);
-        public abstract void Warning (string message);
-        public abstract void Error (string message);
-        public abstract void Error (Exception exception);
-        public abstract void Assert (string message);
-        public abstract bool AssertNotNull (object o0);
-        public abstract bool AssertIsNull (object o0);
-        public abstract bool AssertEquals (int i0, int i1);
-        public abstract bool AssertEquals (double d0, double d1);
-        public abstract bool AssertEquals (string s0, string s1, bool refEquals = false);
-
-        protected string LogAction (LogEvent action)
-        {
-            string _rtn = string.Empty;
-            switch (action) {
-                case Logging.LogEvent.Enter:
-                    _rtn = ">> Enter:";
-                    break;
-                case Logging.LogEvent.Exit:
-                    _rtn = "<< Exit";
-                    break;
-            }
-            return _rtn;
-        }
-    }
 }

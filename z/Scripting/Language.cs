@@ -18,12 +18,15 @@
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ============================================================================*/
+
+#region Usings
 using System;
+#endregion
 
 namespace Z.Scripting
 {
-    public enum Language
-    {
-        JavaScript = 0
-    }
+  public enum Language
+  {
+    JavaScript = 0
+  }
 }

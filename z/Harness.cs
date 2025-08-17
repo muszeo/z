@@ -155,7 +155,7 @@ namespace Z
                 $"                                                                  \n" +
                 $"==================================================================\n\n" +
                 $"                  Z-API-Test Harness version {Constants.Z_VERSION}\n\n" +
-                $"              (c) Martin Hunter, 2023, New Zealand                \n\n" +
+                $"              (c) Martin Hunter, 2023-2025, New Zealand           \n\n" +
                 $"==================================================================\n"
             );
         }

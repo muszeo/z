@@ -21,10 +21,10 @@
 
 #region Usings
 using System;
-using Z.Scripting.JavaScript;
-using System.Collections.Generic;
 using Jurassic;
 using Z.Logging;
+using Z.Scripting.JavaScript;
+using System.Collections.Generic;
 #endregion
 
 namespace Z.Scripting

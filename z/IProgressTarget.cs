@@ -29,9 +29,9 @@ using System.Collections.Generic;
 
 namespace Z
 {
-    public interface IProgressTarget
-    {
-        void NewLine ();
-        void Report (string message);
-    }
+  public interface IProgressTarget
+  {
+    void NewLine ();
+    void Report (string message);
+  }
 }

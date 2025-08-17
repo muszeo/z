@@ -33,23 +33,6 @@ namespace Z.Settings
     {
         public static readonly int Z_VERSION = 1;
 
-        public static class Messages
-        {
-            public const string COMPLETED = "Installation Completed.";
-            public const string CANCELLED = "Cancelled";
-            public const string DOWNLOADED = "Download completed";
-            public const string BREW_CHECK = "Checking Homebrew installation...";
-            public const string BREW_UPDATE = "Updating Homebrew...";
-            public const string DOWNLOADING = "Downloading ...";
-            public const string DECOMPRESSED = "Unpack completed";
-            public const string DECOMPRESSING = "Unpacking ...";
-            public const string UPDATING_GTK3 = "Updating GTK+3 installation now...";
-            public const string NO_INSTALL_PATH = "No install path provided.";
-            public const string INSTALLING_GTK3 = "Installing GTK+3 prerequisites now...";
-            public const string BREW_NOT_INSTALLED = "Homebrew is not installed, installing now...";
-            public const string BREW_NOT_INSTALL_FAILED = "Install of Homebrew failed. Please install Brew and GTK+3.";
-        }
-
         public static class Commands
         {
             public const string RUN = "run";
@@ -71,7 +54,7 @@ namespace Z.Settings
                 public static readonly string MAJOR = "23";
                 public static readonly string MINOR = "02";
                 public static readonly string REVISION = "2";
-                public static readonly string COPYRIGHT = "Copyright (c) 2023 Martin Hunter, New Zealand, All Rights Reserved.";
+                public static readonly string COPYRIGHT = "Copyright (c) 2023-2025 Martin Hunter, New Zealand, All Rights Reserved.";
             }
 
             public static class Localisation

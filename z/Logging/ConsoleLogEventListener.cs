@@ -136,7 +136,7 @@ namespace Z.Logging
         {
             Error (
                 $"Exception:" +
-                $"\n\tType: {exception.GetType().ToString()}" +
+                $"\n\tType: {exception.GetType ().ToString ()}" +
                 $"\n\tSource: {exception.Source}" +
                 $"\n\tMessage: {exception.Message}," +
                 $"\n\tTrace: {exception.StackTrace}"

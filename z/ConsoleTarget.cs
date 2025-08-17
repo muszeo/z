@@ -44,9 +44,9 @@ namespace Z
 		/// Write Status
 		/// </summary>
 		/// <param name="message"></param>
-        public void Report (string message)
+		public void Report (string message)
 		{
 			Console.WriteLine (message);
 		}
-    }
+	}
 }
