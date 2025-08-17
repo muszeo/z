@@ -1,3 +1,20 @@
+```
+==================================================================
+                                                                  
+      zzzzzzzzzzzzzz zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz z z  z   z  
+     zz          zz                                               
+    zz          zz  aaaa     ppppp  iiii  tttttttttt              
+  zzzzzzzz     zz  aa   a    pp  pp  ii       tt                  
+        zz    zz  aa  a  a   pp  pp  ii       tt                  
+       zz    zz  aa  aaa  a  ppppp   ii       tt                  
+      Zz    zzzzzazzaaaaazza pp zzzzziizzzzzz tt zzzz z z  z   z  
+     zz        aa  a    aa  app      ii       tt                  
+    Zzzzzzzzzzzzzzzzzzzzzzzz pp zzzzzzzzzzzzz tt zzzz z z  z   z  
+             aa  a        aa pp     iiii      tt                  
+                                                                  
+==================================================================
+```
+
 # Z API Test (ZAPIT)
 
 *Zapit* is a simple Javascript-based Web API test harness that can be run from the command line and thus easily hooked into any CICD platform.
