@@ -89,36 +89,7 @@ namespace Z.Scripting
         }
 
         /// <summary>
-        /// Gets the given {dateTime} as a string in MySQL format.
-        /// NB. Defaults to DateTime.MinValue.
-        /// </summary>
-        /// <param name="dateTime"></param>
-        /// <returns></returns>
-        public static string StringifyANSI (this DateTime? dateTime)
-        {
-            if (dateTime == null || !dateTime.HasValue) {
-                dateTime = DateTime.MinValue;
-            }
-            return $"{dateTime.Value.Year}-{__Prepend (dateTime.Value.Month)}-{__Prepend (dateTime.Value.Day)} "
-                + $"{__Prepend (dateTime.Value.Hour)}:{__Prepend (dateTime.Value.Minute)}:{__Prepend (dateTime.Value.Second)}";
-        }
-
-        /// <summary>
-        /// Gets the Date component of the given {dateTime} as a string in MySQL format.
-        /// NB. Defaults to DateTime.MinValue.
-        /// </summary>
-        /// <param name="dateTime"></param>
-        /// <returns></returns>
-        public static string StringifyANSIDateOnly (this DateTime? dateTime)
-        {
-            if (dateTime == null || !dateTime.HasValue) {
-                dateTime = DateTime.MinValue;
-            }
-            return $"{dateTime.Value.Year}-{__Prepend (dateTime.Value.Month)}-{__Prepend (dateTime.Value.Day)}";
-        }
-
-        /// <summary>
-        /// Gets the given {dateTime} as a string in MySQL format.
+        /// Gets the given {dateTime} as a string in SQL format.
         /// NB. Defaults to DateTime.MinValue.
         /// </summary>
         /// <param name="dateTime"></param>
@@ -130,7 +101,7 @@ namespace Z.Scripting
         }
 
         /// <summary>
-        /// Gets the Date component of the given {dateTime} as a string in MySQL format.
+        /// Gets the Date component of the given {dateTime} as a string in SQL format.
         /// NB. Defaults to DateTime.MinValue.
         /// </summary>
         /// <param name="dateTime"></param>
