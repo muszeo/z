@@ -10,8 +10,10 @@ Use the shell scripts in the root of the project to build the Zapit executable f
 
 ## Using Zapit
 
-Create an empty Javascript file, write a test plan therein, run the test plan script using Zapit.
+1. Create an empty Javascript file.
+2. Write a test plan therein.
+3. Run the test plan script using Zapit.
 
 Execute Zapit with no command line parameters, or pass 'help', for help.
 
-./zapit help
+```./zapit help```
