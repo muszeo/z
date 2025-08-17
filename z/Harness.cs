@@ -156,6 +156,7 @@ namespace Z
                 $"==================================================================\n\n" +
                 $"                  Z-API-Test Harness version {Constants.Z_VERSION}\n\n" +
                 $"              (c) Martin Hunter, 2023-2025, New Zealand           \n\n" +
+                $"                 This software is licensed GNU GPL v2             \n\n" +
                 $"==================================================================\n"
             );
         }
